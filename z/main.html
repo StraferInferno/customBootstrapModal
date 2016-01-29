@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+
+   <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+         
+    </head>
+
+    <body >
+        <div ng-controller="custControllerWithAs as dirList">
+        <section>
+            <p>Enter a name to filter the wanted records:</p>
+            <input type="text" placeholder="Type in the name" ng-model="filterText.name">
+             <div class="text-nowrap"></div>
+            <table class="table table-striped">
+            <tr>
+				<th ng-click="dirList.doSort('name')"> Name</th>
+                <th ng-click="dirList.doSort('city')"> City</th>
+                <th ng-click="dirList.doSort('joined')">Join Date</th>
+                <th ng-click="dirList.doSort('orderTotal')">Order Total</th>	
+
+			</tr>
+            <tr ng-repeat="person in dirList.people | orderBy:'name' | filter:filterText | orderBy:dirList.sortBy:dirList.reverse">
+                <td>{{person.name | uppercase}}</td>
+                <td>{{person.city | lowercase}}</td>
+                <td>{{person.joined | date:'longDate'}}</td>
+                <td>{{person.orderTotal | currency}}</td>
+             </tr>
+         </table>
+        </section>
+        <script src="angular.js" type="text/javascript"></script>
+        <script src="custControllerWithAs.js" type="text/javascript"></script>
+    </div>
+    </body>
+</html>

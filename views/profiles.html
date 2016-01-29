@@ -1,0 +1,23 @@
+<div ng-controller="MainCtrl" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Profiles</h1>
+            <button class="btn btn-default" ng-attr-id="btnId" data-toggle="modal" id="userButton" ng-class="{'btn btn-primary': !isActive}" ng-disabled="isDisabled" ng-click="activeButton(btnId); todo(btnId)" type="button">User Profile</button>
+            <button class="btn btn-default" ng-attr-id="btnID" data-toggle="modal"  id="adminButton"  ng-disabled="isDisabled" ng-class="{'btn btn-primary': isActive}" ng-click="activeButton(btnID);todo(btnID)" type="button">Admin Profile</button>
+           </div>
+       </div>
+       <div class="row">
+       <div class="col-md-6">
+            <modal title="Login form" visible="showModal" id="yahoo">
+                <span id="msgid">{{message}}</span>
+            </modal>
+        </div>
+    </div>
+</div>
+<!-- <div class="row padded">
+    <div class="list-group col-xs-2">
+        <a class="list-group-item" ng-repeat="item in shoppingList" ng-class="{active : item.selected}" ui-sref="profiles.item1({itemName:item.name})" ng-click="selectItem(item)">{{item.name}}</a>
+    </div>
+    <div ui-view class="col-xs-5"></div>
+</div>
+ -->

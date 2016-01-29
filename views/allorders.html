@@ -1,0 +1,19 @@
+<h2>All Orders</h2>
+
+<p class="iptext">Filter :</p>
+ <input type="text" class="form-control iptext sizing" placeholder="Product Name" ng-model="filterText.product">
+<table class="table table-striped">
+	<tr>
+		<th>Product</th>
+		<th>Price</th>
+	</tr>
+	<tr ng-repeat="order in orderList | filter:filterText | orderBy:'name'">
+		<td>{{order.product | uppercase }}</td>
+		<td>{{order.total | currency}}</td>
+		</tr>
+	<tr ng-class="totalType">
+		<td>Orders Total</td>
+   	 	<td>{{ ordersTotal | currency }}</td>
+	</tr>
+</table>
+
